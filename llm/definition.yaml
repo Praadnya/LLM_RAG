@@ -1,0 +1,24 @@
+---
+name: llm
+display_name: LLM
+description: "NLP model for diverse tasks, utilizing transformers and trained on extensive datasets."
+sub_category: "Language Modeling"
+category: Language Models
+properties:
+  - name: model_name
+    type: str
+    default_value: GPT4All
+  - name: task
+    type: str
+    default_value: qa
+interfaces:
+  - name: query
+    in:
+      - name: query
+        type: str
+        source: USER_INPUT.QUERY
+      - name: chunk_list
+        type: list[chunk]
+        source: vector_database
+    out:
+      - name: response
